@@ -1,0 +1,19 @@
+PODS:
+  - IQKeyboardManagerSwift (5.0.0)
+  - PagoEfectivoSDK (0.1.0)
+
+DEPENDENCIES:
+  - IQKeyboardManagerSwift (= 5.0.0)
+  - PagoEfectivoSDK (from `~/Desktop/EjemplosPagoEfectivo/PagoEfectivoSDK`)
+
+EXTERNAL SOURCES:
+  PagoEfectivoSDK:
+    :path: ~/Desktop/EjemplosPagoEfectivo/PagoEfectivoSDK
+
+SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
+  PagoEfectivoSDK: c06dec3a76d32ff65b5cfc87a55c4994631a5381
+
+PODFILE CHECKSUM: afe532737df79ebc89b3efa9718ab557f9f20116
+
+COCOAPODS: 1.4.0.beta.1
