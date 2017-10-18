@@ -14,24 +14,26 @@ struct Help {
     static func StringToCurrency (value : UITextField) -> currency {
         switch value.text! {
         case "PEN":
-            return PEN
+            return .PEN
+        case "USD":
+            return .USD
         default:
-            return USD
+            return .NONE
         }
     }
-    
+
     static func StringToDocumenType (value : UITextField) -> documentType {
         switch value.text! {
         case "DNI":
-            return DNI
+            return .DNI
         case "PASS":
-            return  PASS
+            return  .PASS
         case "LMI":
-            return LMI
-        case "NANE":
-            return NANE
+            return .LMI
+        case "PAR":
+            return .PAR
         default:
-            return PAR
+            return .NANE
         }
     }
     
@@ -73,20 +75,19 @@ struct Help {
     static func customAlert (arrayErrorsForUser: [String], time: Double) -> UIAlertController {
         let alert = UIAlertController(title: "Error!", message: "", preferredStyle: .alert)
         let newView = UIView()
-        let height:NSLayoutConstraint = NSLayoutConstraint(item: alert.view, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: CGFloat(75*arrayErrorsForUser.count))
+        let height:NSLayoutConstraint = NSLayoutConstraint(item: alert.view, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: CGFloat((100-10*arrayErrorsForUser.count)*arrayErrorsForUser.count))
         alert.view.addConstraint(height)
         for index in 0...arrayErrorsForUser.count - 1{
-            newView.addSubview(Help.addLbl(numberItems: index, text:arrayErrorsForUser[index], positionY: 50, positionx: 8, width: 200, height: 60))
+            newView.addSubview(Help.addLbl(numberItems: index, text:arrayErrorsForUser[index], positionY: 35, positionx: 8, width: 200, height: 60))
         }
         alert.view.addSubview(newView)
         let when = DispatchTime.now() + time
         DispatchQueue.main.asyncAfter(deadline: when){
             alert.dismiss(animated: true, completion: nil)
         }
-        alert.view.removeFromSuperview()
         return alert
     }
-    
+
     static func stringToDate (date: String) -> String {
 
         let stringDate = date
@@ -98,7 +99,7 @@ struct Help {
         let sec = self.substring(string: stringDate, with: 17..<19)
         return "\(day)/\(month)/\(year)  \(hour):\(min):\(sec)"
     }
-    
+
     static func substring( string :String, with r: Range<Int>) -> String {
         let startIndex = string.index(string.startIndex, offsetBy: r.lowerBound)
         let endIndex = string.index(string.startIndex, offsetBy: r.upperBound)

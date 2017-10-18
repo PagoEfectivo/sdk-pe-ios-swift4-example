@@ -53,7 +53,9 @@ class DataCipViewController: UIViewController {
 
     @IBAction func nextView(_ sender: UIButton) {
         generateCip.isEnabled = false
-
+        request.currency = Help.StringToCurrency(value: currency)
+        request.userEmail = userEmail.text
+        request.transactionCode = transactionCode.text
         request.userName = userName.text
         request.userLastName = userLastName.text
         request.userUbigeo = userUbigeo.text
@@ -66,23 +68,12 @@ class DataCipViewController: UIViewController {
         request.additionalData = additionalData.text
         request.paymentConcept = paymentConcep.text
         request.userCodeCountry = userCodeCountry.text
-        if (currency.text != ""){
-            request.currency = Help.StringToCurrency(value: currency)
-        }
-        if (userDocumentType.text != ""){
-            request.userDocumentType = Help.StringToDocumenType(value: userDocumentType)
-        }
+        request.userDocumentType = Help.StringToDocumenType(value: userDocumentType)
         if (amount.text != "") {
             request.amount = Double(amount.text!)!
         } else {
             request.amount = 0
         }
-        if (adminEmail.text != ""){
-            request.adminEmail = adminEmail.text
-        }
-        /*if (dateExpiry.text != ""){
-            request.dateExpiry = dateExpiry.text
-        }*/
         PagoEfectivoSDK.cip().generate(request, responseHandler: { (status, result, error) in
             if (error != nil) {
                 var arrayErrorsForUser = [String]()
@@ -90,7 +81,7 @@ class DataCipViewController: UIViewController {
                     if let arrayErrors = errors["errorsFounded"]! as? NSArray {
                         for index in 0...arrayErrors.count - 1 {
                             let object = arrayErrors[index] as? [String:Any]
-                            let messageForUser = "\(index+1).\(object?["fieldName"] as! String ) is \(object?["error"] as! String)"
+                            let messageForUser = "\(index+1).\(object?["fieldName"] as! String ) is \(object?["message"] as! String)"
                             arrayErrorsForUser.append(messageForUser)
                         }
                     }

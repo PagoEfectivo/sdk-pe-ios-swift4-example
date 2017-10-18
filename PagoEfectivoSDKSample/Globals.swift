@@ -17,11 +17,11 @@ struct Global {
         static let showSummary = "showSummary"
         static let showResultSearch = "showResultSearch"
     }
-    
+
     struct NibIdentifier {
         static let CipDetailTableViewCell = "CipDetailTableViewCell"
     }
-    
+
     struct NibName {
         static let CipDetailTableViewCell = "CipDetailTableViewCell"
     }

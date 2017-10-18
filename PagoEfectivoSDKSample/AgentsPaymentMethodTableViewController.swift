@@ -20,9 +20,9 @@ class AgentsPaymentMethodTableViewController: UITableViewController {
         super.viewDidLoad()
         numberCip.text = String(dataCip.numberCip)
         if (dataCip.currencyCip == "PEN") {
-            amountCip.text = "S/. " + String(dataCip.amountCip)
+            amountCip.text = "S/.\(String(dataCip.amountCip))"
         } else {
-            amountCip.text = "$ " + String(dataCip.amountCip)
+            amountCip.text = "$ \(String(dataCip.amountCip))"
         }
         dateExpiryCip.text = Help.stringToDate(date: dataCip.dateExpiryCip)
     }
@@ -39,7 +39,7 @@ class AgentsPaymentMethodTableViewController: UITableViewController {
         if(indexPath.row == 1) {
             performSegue(withIdentifier: Global.Segue.showSummary, sender: self)
         } else {
-            print("Opción no váida!")
+            print("Opción no válida!")
         }
     }
 

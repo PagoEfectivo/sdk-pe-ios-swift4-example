@@ -19,20 +19,18 @@ class MobilePaymentMethodTableViewController: UITableViewController {
         super.viewDidLoad()
         numberCip.text = String(dataCip.numberCip)
         if (dataCip.currencyCip == "PEN") {
-            mountCip.text = "S/. " + String(dataCip.amountCip)
+            mountCip.text = "S/. \(String(dataCip.amountCip))"
         } else {
-            mountCip.text = "$ " + String(dataCip.amountCip)
+            mountCip.text = "$ \(String(dataCip.amountCip))"
         }
         dateExpiryCip.text = Help.stringToDate(date: dataCip.dateExpiryCip)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return 6
     }
 
@@ -40,10 +38,10 @@ class MobilePaymentMethodTableViewController: UITableViewController {
         if(indexPath.row == 1) {
             performSegue(withIdentifier: Global.Segue.showSummary, sender: self)
         } else {
-            print("Opción no váida!")
+            print("Opción no válida!")
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == Global.Segue.showSummary) {
             guard let nextView = segue.destination as? SummaryViewController else {
