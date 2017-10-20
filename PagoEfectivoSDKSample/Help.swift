@@ -105,5 +105,23 @@ struct Help {
         let endIndex = string.index(string.startIndex, offsetBy: r.upperBound)
         return String(string[startIndex..<endIndex])
     }
+
+    static func stringToTypeDate ( string: String) -> Date {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/mm/yyyy hh:mm" //Your date format
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
+        return dateFormatter.date(from: string)!
+    }
+
+    static func createRefresher ( view: UIView) -> UIActivityIndicatorView {
+        
+        let refresh : UIActivityIndicatorView = UIActivityIndicatorView()
+        refresh.center = view.center
+        refresh.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        refresh.hidesWhenStopped = true
+        view.addSubview(refresh)
+        return refresh
+    }
 }
 

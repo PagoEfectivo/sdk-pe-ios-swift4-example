@@ -33,26 +33,45 @@ class DataCipViewController: UIViewController {
     let currencyOptions = ["PEN","USD"]
     let documentTypeOptions = ["DNI","PASS","LMI","PAR","NAN"]
     var dataCip = DataCip()
-
+    let datePicker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPicker(value: currencyPicker)
         setupPicker(value: documentTypePicker)
+        setupDataPicker(value: datePicker)
     }
 
     func setupPicker (value : UIPickerView){
         value.delegate = self
         value.dataSource = self
     }
+    func setupDataPicker ( value: UIDatePicker) {
+        value.frame = CGRect(x: 0, y: 50, width: self.view.frame.width, height: 200)
+        value.timeZone = NSTimeZone.local
+        value.backgroundColor = UIColor.white
+        value.layer.cornerRadius = 5.0
+        value.layer.shadowOpacity = 0.5
+        value.addTarget(self, action: #selector(changeDate), for: .valueChanged)
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         generateCip.isEnabled = true
         currency.inputView = currencyPicker
         userDocumentType.inputView = documentTypePicker
+        dateExpiry.inputView = datePicker
+    }
+    
+    @objc func changeDate () {
+        let myDateFormatter: DateFormatter = DateFormatter()
+        myDateFormatter.dateFormat = "dd/MM/yyyy hh:mm a"
+        dateExpiry.text = myDateFormatter.string(from: datePicker.date)
+        request.dateExpiry = datePicker.date
     }
 
     @IBAction func nextView(_ sender: UIButton) {
         generateCip.isEnabled = false
+        let refresh = Help.createRefresher(view: self.view)
+        refresh.startAnimating()
         request.currency = Help.StringToCurrency(value: currency)
         request.userEmail = userEmail.text
         request.transactionCode = transactionCode.text
@@ -69,25 +88,28 @@ class DataCipViewController: UIViewController {
         request.paymentConcept = paymentConcep.text
         request.userCodeCountry = userCodeCountry.text
         request.userDocumentType = Help.StringToDocumenType(value: userDocumentType)
-        if (amount.text != "") {
+        if (!(amount.text?.isEmpty)!) {
             request.amount = Double(amount.text!)!
         } else {
             request.amount = 0
         }
+        var arrayErrorsForUser = [String]()
         PagoEfectivoSDK.cip().generate(request, responseHandler: { (status, result, error) in
             if (error != nil) {
-                var arrayErrorsForUser = [String]()
                 if let errors = (error as NSError?)?.userInfo{
                     if let arrayErrors = errors["errorsFounded"]! as? NSArray {
                         for index in 0...arrayErrors.count - 1 {
                             let object = arrayErrors[index] as? [String:Any]
-                            let messageForUser = "\(index+1).\(object?["fieldName"] as! String ) is \(object?["message"] as! String)"
+                            let messageForUser = "\(index+1). Campo \(object?["message"] as! String)"
                             arrayErrorsForUser.append(messageForUser)
                         }
                     }
                 }
-                self.present(Help.customAlert(arrayErrorsForUser: arrayErrorsForUser, time: 2), animated: true, completion: nil)
-                self.generateCip.isEnabled = true
+                DispatchQueue.main.async{
+                    self.present(Help.customAlert(arrayErrorsForUser: arrayErrorsForUser, time: 2), animated: true, completion: nil)
+                    self.generateCip.isEnabled = true
+                    refresh.stopAnimating()
+                }
             } else {
                 if let dictionary = result as? [String: Any] {
                     if let data = dictionary["data"] as? [String: Any] {
@@ -102,6 +124,7 @@ class DataCipViewController: UIViewController {
                 }
                 DispatchQueue.main.async{
                     self.performSegue(withIdentifier: Global.Segue.showPasarela, sender: self)
+                    refresh.stopAnimating()
                 }
             }
         })

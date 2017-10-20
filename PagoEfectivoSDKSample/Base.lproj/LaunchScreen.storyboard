@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,10 +22,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PagoEfectivoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="piA-zE-XeM">
-                                <rect key="frame" x="27" y="159" width="320" height="349"/>
+                                <rect key="frame" x="52" y="177" width="271" height="312"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="349" id="15T-2D-jy8"/>
-                                    <constraint firstAttribute="width" constant="320" id="Rtm-0L-ZOT"/>
+                                    <constraint firstAttribute="height" constant="312" id="15T-2D-jy8"/>
+                                    <constraint firstAttribute="width" constant="271" id="Rtm-0L-ZOT"/>
                                 </constraints>
                             </imageView>
                         </subviews>
