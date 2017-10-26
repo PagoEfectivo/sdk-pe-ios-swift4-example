@@ -15,10 +15,9 @@ class SummaryViewController: UIViewController {
     var dataCip = DataCip()
     override func viewDidLoad() {
         super.viewDidLoad()
+        generalSummary.text = "Paga $ \(String(dataCip.amountCip)) en BCP para reservar tu compra"
         if (dataCip.currencyCip == "PEN") {
-            generalSummary.text = "Paga S/. \(String(dataCip.amountCip)) en BCP para reservar tu compra"
-        } else {
-            generalSummary.text = "Paga $ \(String(dataCip.amountCip)) en BCP para reservar tu compra"
+            generalSummary.text = "Paga S/.\(String(dataCip.amountCip)) en BCP para reservar tu compra"
         }
         summaruNumberCip.text = "3. Díctale al cajero este código CIP : \(String(dataCip.numberCip))"
     }

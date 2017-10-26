@@ -37,15 +37,14 @@ struct Help {
         }
     }
     
-    static func addLbl ( numberItems : Int, text : String, positionY: Int, positionx: Int, width: Int, height: Int) -> UILabel {
+    static func addLbl ( numberItems : Int, text : String, positionY: Int, positionX: Int, width: Int, height: Int) -> UILabel {
         
         let distanceY = positionY + numberItems * 45
-        let distanceX = positionx  // ancho 173
         let lbl = UILabel()
-        lbl.frame = CGRect(x: distanceX, y: distanceY, width: width, height: height)
+        lbl.frame = CGRect(x: positionX, y: distanceY, width: width, height: height)
         lbl.text = text
         lbl.textColor = UIColor.black
-        lbl.numberOfLines = 2
+        lbl.numberOfLines = 0
         lbl.textAlignment = .justified
         lbl.font=UIFont.systemFont(ofSize: 15)
         lbl.tag = 10 + numberItems
@@ -54,9 +53,8 @@ struct Help {
     
     static func addTextField (numberItems: Int) -> UITextField {
         let distanceY = 120 + numberItems * 45
-        let distanceX = 85  // ancho 173
         let textField = UITextField()
-        textField.frame = CGRect(x: distanceX, y: distanceY, width: 173, height: 30)
+        textField.frame = CGRect(x: 85, y: distanceY, width: 173, height: 30)
         textField.borderStyle = .roundedRect
         textField.keyboardType = .numberPad
         return textField
@@ -65,8 +63,8 @@ struct Help {
     static func simpleAlert (message: String , time: Double ) -> UIAlertController {
     
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        let when = DispatchTime.now() + time
-        DispatchQueue.main.asyncAfter(deadline: when){
+        let delayTime = DispatchTime.now() + time
+        DispatchQueue.main.asyncAfter(deadline: delayTime){
             alert.dismiss(animated: true, completion: nil)
         }
         return alert
@@ -75,35 +73,59 @@ struct Help {
     static func customAlert (arrayErrorsForUser: [String], time: Double) -> UIAlertController {
         let alert = UIAlertController(title: "Error!", message: "", preferredStyle: .alert)
         let newView = UIView()
-        let height:NSLayoutConstraint = NSLayoutConstraint(item: alert.view, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: CGFloat((100-10*arrayErrorsForUser.count)*arrayErrorsForUser.count))
+        var constant = CGFloat(80)
+        if (arrayErrorsForUser.count > 1) {
+            constant = CGFloat((75 - 5*(arrayErrorsForUser.count-1))*arrayErrorsForUser.count)
+        }
+        let height:NSLayoutConstraint = NSLayoutConstraint(item: alert.view, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: constant)
         alert.view.addConstraint(height)
-        for index in 0...arrayErrorsForUser.count - 1{
-            newView.addSubview(Help.addLbl(numberItems: index, text:arrayErrorsForUser[index], positionY: 35, positionx: 8, width: 200, height: 60))
+        for (index,item) in arrayErrorsForUser.enumerated(){
+            newView.addSubview(Help.addLbl(numberItems: index , text:item, positionY: 30, positionX: 8, width: 200, height: 60))
         }
         alert.view.addSubview(newView)
-        let when = DispatchTime.now() + time
-        DispatchQueue.main.asyncAfter(deadline: when){
+        let delayTime = DispatchTime.now() + time
+        DispatchQueue.main.asyncAfter(deadline: delayTime){
             alert.dismiss(animated: true, completion: nil)
         }
         return alert
     }
 
-    static func stringToDate (date: String) -> String {
-
-        let stringDate = date
-        let year = self.substring(string: stringDate, with: 0..<4)
-        let month = self.substring(string: stringDate, with: 5..<7)
-        let day = self.substring(string: stringDate, with: 8..<10)
-        let hour = self.substring(string: stringDate, with: 11..<13)
-        let min = self.substring(string: stringDate, with: 14..<16)
-        let sec = self.substring(string: stringDate, with: 17..<19)
-        return "\(day)/\(month)/\(year)  \(hour):\(min):\(sec)"
+    static func getFormatterEvent(dateString:String)->String{
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return self.newFormatFor(dateFormater.date(from: dateString)!)
+        
     }
 
-    static func substring( string :String, with r: Range<Int>) -> String {
-        let startIndex = string.index(string.startIndex, offsetBy: r.lowerBound)
-        let endIndex = string.index(string.startIndex, offsetBy: r.upperBound)
-        return String(string[startIndex..<endIndex])
+    static func newFormatFor(_ date:Date) -> String {
+        let newDateFormat = DateFormatter()
+        newDateFormat.dateFormat = "dd/MM/yyyy hh:mm a"
+        newDateFormat.locale = Locale(identifier: "es_PE")
+        return newDateFormat.string(from: date)
+    }
+
+    static func createRefresh ( view: UIView) -> UIActivityIndicatorView {
+        
+        let refresh : UIActivityIndicatorView = UIActivityIndicatorView()
+        refresh.center = view.center
+        refresh.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        refresh.hidesWhenStopped = true
+        view.addSubview(refresh)
+        return refresh
+    }
+
+    static func returnErrorFounded( error : Any) -> [String] {
+        var arrayErrorsForUser: [String] = []
+        guard let errorAux = error as? NSError else { return arrayErrorsForUser }
+        guard let errorsFounded = errorAux.userInfo["errorsFounded"] as? NSArray else {
+            return arrayErrorsForUser
+        }
+        errorsFounded.enumerated().forEach({ (index, item) in
+            let object = item as? [String: Any]
+            let messageForUser = "\(index+1). Campo \(object?["message"] as! String)"
+            arrayErrorsForUser.append(messageForUser)
+        })
+        return arrayErrorsForUser
     }
 
     static func stringToTypeDate ( string: String) -> Date {
