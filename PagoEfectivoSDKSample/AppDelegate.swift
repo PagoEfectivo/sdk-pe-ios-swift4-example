@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.sharedManager().enable = true
-        PagoEfectivoSDK.config("Nfybo8h0yN7CFN1ycX+XaG99pj/y3Vt25urt1LXM" , accessKey: "AKIPJP77AHN2DKVIJCCA", serviceId: 5)
+        PagoEfectivoSDK.config("Nfybo8h0yN7CFN1ycX+XaG99pj/y3Vt25urt1PR1" , accessKey: "AKIPJP77AHN2DKVIJPR1", serviceId: 10)
         UINavigationBar.appearance().barTintColor = UIColor.yellow
         UINavigationBar.appearance().tintColor = UIColor.black
         return true

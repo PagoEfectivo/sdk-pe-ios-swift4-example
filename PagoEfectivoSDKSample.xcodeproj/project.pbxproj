@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5613B5781F9A4B4A00FC4695 /* PagoEfectivoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5613B5771F9A4B4300FC4695 /* PagoEfectivoSDK.framework */; };
-		5613B5791F9A4B4A00FC4695 /* PagoEfectivoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5613B5771F9A4B4300FC4695 /* PagoEfectivoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5647FFFD1F8FC205005F6684 /* SearchCipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5647FFFC1F8FC205005F6684 /* SearchCipViewController.swift */; };
 		56579D4B1F883BA300FE85D6 /* CipDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56579D491F883BA300FE85D6 /* CipDetailTableViewCell.swift */; };
 		56579D4C1F883BA300FE85D6 /* CipDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56579D4A1F883BA300FE85D6 /* CipDetailTableViewCell.xib */; };
@@ -31,20 +29,6 @@
 		AF519033104457E70D5EF8F4 /* Pods_PagoEfectivoSDKSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC0F0AD8191AE5804A2F561 /* Pods_PagoEfectivoSDKSample.framework */; };
 		D3B1ED84CED039F270448DB1 /* Pods_PagoEfectivoSDKSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD32B05B72E61695CD117ED4 /* Pods_PagoEfectivoSDKSample.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		569079F11F97E84500BBDF47 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5613B5791F9A4B4A00FC4695 /* PagoEfectivoSDK.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4AC0F0AD8191AE5804A2F561 /* Pods_PagoEfectivoSDKSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PagoEfectivoSDKSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +66,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				56E1B72F1F916DFE00821188 /* Security.framework in Frameworks */,
-				5613B5781F9A4B4A00FC4695 /* PagoEfectivoSDK.framework in Frameworks */,
 				56E1B72D1F916DF400821188 /* CFNetwork.framework in Frameworks */,
 				AF519033104457E70D5EF8F4 /* Pods_PagoEfectivoSDKSample.framework in Frameworks */,
 				D3B1ED84CED039F270448DB1 /* Pods_PagoEfectivoSDKSample.framework in Frameworks */,
@@ -242,7 +225,6 @@
 				5681E09C1F881F1D00D48860 /* Resources */,
 				7F18808F598E4E991E9B4459 /* [CP] Embed Pods Frameworks */,
 				845B4E9000DF1477B1F9124C /* [CP] Copy Pods Resources */,
-				569079F11F97E84500BBDF47 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -329,10 +311,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PagoEfectivoSDKSample/Pods-PagoEfectivoSDKSample-frameworks.sh",
+				"${PODS_ROOT}/../../../Cocoa/Cocoa/PagoEfectivoSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PagoEfectivoSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
