@@ -1,19 +1,12 @@
 PODS:
-  - Cocoa (0.0.1)
   - IQKeyboardManagerSwift (5.0.0)
 
 DEPENDENCIES:
-  - Cocoa (from `~/Desktop/Cocoa`)
   - IQKeyboardManagerSwift (= 5.0.0)
 
-EXTERNAL SOURCES:
-  Cocoa:
-    :path: ~/Desktop/Cocoa
-
 SPEC CHECKSUMS:
-  Cocoa: a986e2264a06cd526ac180a1d34f9afb1b7c95f0
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
 
-PODFILE CHECKSUM: 17cc2f3482207a57c2254611057b2c15b59e2d9a
+PODFILE CHECKSUM: 72bafedf6dbba84bbf8408b29046e27f1516ff7c
 
 COCOAPODS: 1.4.0.beta.1
