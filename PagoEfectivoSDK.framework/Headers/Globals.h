@@ -140,9 +140,21 @@ typedef NS_ENUM(NSInteger, API_STATUS) {
 +(NSString*)getURLService;
 
 /**
+ Retorna la URL base del servicio de sanbox
+ */
++(NSString*)getURLSandboxService;
+
+/**
  Retorna la URL de la autorización
  */
 +(NSString*)getURLAuth;
+
+
+/**
+ Retorna la URL de la autorización de sandbox
+ */
++(NSString*)getURLSandboxAuth;
+
 
 /**
  Retorna la URL de la generación de CIP
@@ -150,9 +162,24 @@ typedef NS_ENUM(NSInteger, API_STATUS) {
 +(NSString*)getURLGenerateCip;
 
 /**
+ Retorna la URL de la generación de sandbox
+ */
++(NSString*)getURLSandboxGenerateCip;
+
+/**
  Retorna la URL de buscar CIP
  */
 +(NSString*)getURLSearchCip;
+
+/**
+ Retorna la URL de buscar CIP de sandbox
+ */
++(NSString*)getURLSandboxSearchCip;
+
+/**
+ Retorna el mensaje cuando está en sandbox
+ */
++(NSString*)getSandboxMessage;
 
 /**
  Retorna el status numérico en base a un valor de tipo API_STATUS

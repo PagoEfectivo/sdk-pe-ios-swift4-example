@@ -14,5 +14,6 @@
 @property int serviceId;
 @property NSString* accessKey;
 @property NSString* secretKey;
+@property BOOL sandbox;
 
 @end

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Debug.plist</key>
 		<data>
-		SKkB/8rjb5/7s+MSx88WJRCPsKs=
+		t5k3WlPLpOU22tN9rAJXHRQK1Nk=
 		</data>
 		<key>Headers/Auth.h</key>
 		<data>
@@ -26,11 +26,11 @@
 		</data>
 		<key>Headers/Credential.h</key>
 		<data>
-		T3LEkuOpCyeEyL6U3fNOII03lOk=
+		f3ONBmzx5QqU7NO2J8ZOMjEFgSc=
 		</data>
 		<key>Headers/Globals.h</key>
 		<data>
-		QqU/n7bZBhOzo6VbinnkOQaAIQk=
+		SvUCX3Dn4xlu0qj01YNJIuM3zu0=
 		</data>
 		<key>Headers/Helper.h</key>
 		<data>
@@ -38,11 +38,11 @@
 		</data>
 		<key>Headers/PagoEfectivoSDK.h</key>
 		<data>
-		WX9kJR7rurBGDal+DkDXAgJ3R2I=
+		gLaIxb3JFASEeK0Pt0JrPdxMaWI=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		pO1qqJqtNpnIrVLwQmywOWWLpXw=
+		4AK7kX+lLUf8hBvA4zwrDSPQvIM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -50,11 +50,11 @@
 		</data>
 		<key>Release.plist</key>
 		<data>
-		FrWjPi5t3QghUFv253MWd64FaR4=
+		UjJyePY1gTQCAEwiOWIh+Cb30Ps=
 		</data>
 		<key>ios-build-framework-script.sh</key>
 		<data>
-		h0jAvIyTJwKp3LQDOggBZ2LiGAw=
+		SEtNea+fzfDdI7Os7k9aCjEuNjg=
 		</data>
 		<key>ios-oclint.sh</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>main.plist</key>
 		<data>
-		SKkB/8rjb5/7s+MSx88WJRCPsKs=
+		UjJyePY1gTQCAEwiOWIh+Cb30Ps=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -71,11 +71,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SKkB/8rjb5/7s+MSx88WJRCPsKs=
+			t5k3WlPLpOU22tN9rAJXHRQK1Nk=
 			</data>
 			<key>hash2</key>
 			<data>
-			y5uYTs+d01UZwAP/MgwCBJ+29N+HUWC0nsLD9E/WfzY=
+			SHVnEtJUZiVKL/FP7LM9JpGabLdQjVq0iuOGsCPjHzs=
 			</data>
 		</dict>
 		<key>Headers/Auth.h</key>
@@ -126,22 +126,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			T3LEkuOpCyeEyL6U3fNOII03lOk=
+			f3ONBmzx5QqU7NO2J8ZOMjEFgSc=
 			</data>
 			<key>hash2</key>
 			<data>
-			Q/HJ+mf6KnSjzPOfO3xSm3yOo37z9aUyZHcFZv5nJ/8=
+			Gr+9wxklQ48OwnwzN7J/h02knK6u89bJ/VQ1djvZHVs=
 			</data>
 		</dict>
 		<key>Headers/Globals.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QqU/n7bZBhOzo6VbinnkOQaAIQk=
+			SvUCX3Dn4xlu0qj01YNJIuM3zu0=
 			</data>
 			<key>hash2</key>
 			<data>
-			CgXy9MMcra/wt2SSzwSEx0BTIogAdQwzKuUSXKWxkwU=
+			t7NA9PbwZAjUPSgpu6kCymiCBLMLk869ZRHYQsiPuWs=
 			</data>
 		</dict>
 		<key>Headers/Helper.h</key>
@@ -159,11 +159,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WX9kJR7rurBGDal+DkDXAgJ3R2I=
+			gLaIxb3JFASEeK0Pt0JrPdxMaWI=
 			</data>
 			<key>hash2</key>
 			<data>
-			LR3m2+LEKMkHmeAHrSyp3pd+6iEdqelZZYtFnPXDZME=
+			fb6i1P/KE4bta1ePM0Ey+1J3P0D029cwax423u8GWKA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -181,22 +181,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FrWjPi5t3QghUFv253MWd64FaR4=
+			UjJyePY1gTQCAEwiOWIh+Cb30Ps=
 			</data>
 			<key>hash2</key>
 			<data>
-			mHl7PCGfk8ayUogUDTbRE7+4W9RpT3zDPqHpmE6P2Vc=
+			vwEFcb+RKK1W2OjgGFWxz9rtIm0dBHRbiW8lgaUL/0k=
 			</data>
 		</dict>
 		<key>ios-build-framework-script.sh</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			h0jAvIyTJwKp3LQDOggBZ2LiGAw=
+			SEtNea+fzfDdI7Os7k9aCjEuNjg=
 			</data>
 			<key>hash2</key>
 			<data>
-			fRMG29o8joGjdRvrvbtVa7J1/AkQZ5d5CXfirHAzyZE=
+			YDddMZR+woSCdWSgbMMcbtOpKSvNEc2XDg31/ydH54s=
 			</data>
 		</dict>
 		<key>ios-oclint.sh</key>
@@ -214,11 +214,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SKkB/8rjb5/7s+MSx88WJRCPsKs=
+			UjJyePY1gTQCAEwiOWIh+Cb30Ps=
 			</data>
 			<key>hash2</key>
 			<data>
-			y5uYTs+d01UZwAP/MgwCBJ+29N+HUWC0nsLD9E/WfzY=
+			vwEFcb+RKK1W2OjgGFWxz9rtIm0dBHRbiW8lgaUL/0k=
 			</data>
 		</dict>
 	</dict>

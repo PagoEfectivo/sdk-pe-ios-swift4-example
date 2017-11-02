@@ -40,4 +40,13 @@ FOUNDATION_EXPORT const unsigned char PagoEfectivoSDKVersionString[];
  */
 +(void) config:(NSString*)secretKey accessKey:(NSString*)accessKey serviceId:(int)serviceId;
 
+/**
+ `config` este método realiza la conexión principal con el API del servicio
+ @param secretKey Este parámetro es requerido, se debe ingresar el valor proveído
+ @param accessKey Este parámetro es requerido, se debe ingresar el valor proveído
+ @param serviceId Este parámetro es requerido, se debe ingresar el valor proveído
+ @param sandbox Este parámetro es opcional, se debe ingresar un valor de typo boolean
+ */
++(void) config:(NSString*)secretKey accessKey:(NSString*)accessKey serviceId:(int)serviceId sandbox:(BOOL)sandbox;
+
 @end
