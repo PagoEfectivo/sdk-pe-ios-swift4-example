@@ -450,7 +450,7 @@
             </objects>
             <point key="canvasLocation" x="3688" y="-29"/>
         </scene>
-        <!--Agentes-->
+        <!--Mobile-->
         <scene sceneID="OAN-2u-Sb9">
             <objects>
                 <tableViewController id="v4P-tH-KVk" customClass="MobilePaymentMethodTableViewController" customModule="PagoEfectivoSDKSample" customModuleProvider="target" sceneMemberID="viewController">
@@ -639,12 +639,12 @@
                             <outlet property="delegate" destination="v4P-tH-KVk" id="w7T-su-Ba6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Agentes" id="rm0-7k-PNq">
+                    <navigationItem key="navigationItem" title="Mobile" largeTitleDisplayMode="always" id="rm0-7k-PNq">
                         <barButtonItem key="backBarButtonItem" title=" " id="MfK-gY-PaG"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="amountCip" destination="Ybc-YA-6P6" id="h7F-eF-v8n"/>
                         <outlet property="dateExpiryCip" destination="7oY-xu-IAd" id="b3u-V0-PtB"/>
-                        <outlet property="mountCip" destination="Ybc-YA-6P6" id="KGw-cO-dTM"/>
                         <outlet property="numberCip" destination="kHk-KG-sW2" id="KnO-Rx-uCj"/>
                         <segue destination="I2P-Gc-Nzq" kind="show" identifier="showSummary" id="zhh-hE-FMz"/>
                     </connections>
@@ -1135,6 +1135,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nii-CQ-sCD"/>
+        <segue reference="zhh-hE-FMz"/>
     </inferredMetricsTieBreakers>
 </document>

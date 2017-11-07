@@ -30,8 +30,8 @@ class DataCipViewController: UIViewController {
     @IBOutlet weak var adminEmail: UITextField!
     let currencyPicker = UIPickerView()
     let documentTypePicker = UIPickerView()
-    let currencyOptions = ["PEN","USD"]
-    let documentTypeOptions = ["DNI","PASS","LMI","PAR","NAN"]
+    let currencyOptions = ["","PEN","USD"]
+    let documentTypeOptions = ["","DNI","PASS","LMI","PAR","NAN"]
     var dataCip = DataCip()
     let datePicker = UIDatePicker()
     override func viewDidLoad() {

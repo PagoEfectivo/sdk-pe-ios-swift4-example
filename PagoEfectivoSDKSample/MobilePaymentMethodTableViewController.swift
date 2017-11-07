@@ -11,15 +11,16 @@ import UIKit
 class MobilePaymentMethodTableViewController: UITableViewController {
 
     @IBOutlet weak var numberCip: UILabel!
-    @IBOutlet weak var mountCip: UILabel!
+    @IBOutlet weak var amountCip: UILabel!
     @IBOutlet weak var dateExpiryCip: UILabel!
     var dataCip = DataCip()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        numberCip.text = "$ \(String(dataCip.amountCip))"
+        numberCip.text = String(dataCip.numberCip)
+        amountCip.text = "$ \(String(dataCip.amountCip))"
         if (dataCip.currencyCip == "PEN") {
-            numberCip.text = "S/.\(String(dataCip.amountCip))"
+            amountCip.text = "S/.\(String(dataCip.amountCip))"
         }
         dateExpiryCip.text = Help.getFormatterEvent(dateString: dataCip.dateExpiryCip)
     }

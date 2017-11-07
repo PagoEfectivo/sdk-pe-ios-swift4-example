@@ -50,6 +50,7 @@ class SearchCipViewController: UIViewController {
             arraytxtLbl.append(newTextField)
             contCips = contCips + 1
             positonYBtnSearch.constant = CGFloat(37 + 45 * contCips)
+            newTextField.becomeFirstResponder()
         } else {
             self.present(Help.simpleAlert(message: "Número máximo de Cips : 5", time: 1.5), animated: true, completion: nil)
         }
