@@ -14,6 +14,7 @@ struct DataCip {
     var currencyCip:String!
     var dateExpiryCip:String!
     var transationCodeCip:String!
+    var cipUrl:String!
 
 }
 
