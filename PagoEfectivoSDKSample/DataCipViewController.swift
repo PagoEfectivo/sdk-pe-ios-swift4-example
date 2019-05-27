@@ -107,6 +107,7 @@ class DataCipViewController: UIViewController {
                     self.dataCip.transationCodeCip = data["transactionCode"] as! String
                     self.dataCip.amountCip = data["amount"] as! Double
                     self.dataCip.dateExpiryCip = data["dateExpiry"] as! String
+                    self.dataCip.cipUrl = data["cipUrl"] as! String
                 }
                 DispatchQueue.main.async{
                     self.performSegue(withIdentifier: Global.Segue.showPasarela, sender: self)
